@@ -4,6 +4,10 @@ import 'package:social_media/models/User_preferences.dart';
 import 'package:social_media/pages/articale.dart';
 import 'package:social_media/widgets/header.dart';
 
+import 'Profile.dart';
+import 'dio.dart';
+import 'dio1.dart';
+
 final usersRef = FirebaseFirestore.instance.collection('users');
 
 class TimeLinePage extends StatefulWidget {
@@ -14,6 +18,8 @@ class TimeLinePage extends StatefulWidget {
 class _TimeLinePageState extends State<TimeLinePage> {
   final user = UserPreferences.getUser();
   Color iconColor = Colors.blue;
+  Color Colorsr = Colors.blue;
+  Color Colosr = Colors.blue;
   int count = 283, count1 = 201, count2 = 514;
 
   @override
@@ -102,7 +108,10 @@ class _TimeLinePageState extends State<TimeLinePage> {
                     trailing: IconButton(
                       icon: Icon(Icons.more_horiz),
                       color: Colors.black,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => dio()));
+                      },
                     ),
                   ),
                   Container(
@@ -119,7 +128,7 @@ class _TimeLinePageState extends State<TimeLinePage> {
                         ),
                       ],
                       image: DecorationImage(
-                        image: AssetImage('lib/images/1423.jpg'),
+                        image: AssetImage('lib/images/zo.jpg'),
                         fit: BoxFit.fitWidth,
                       ),
                     ),
@@ -240,7 +249,7 @@ class _TimeLinePageState extends State<TimeLinePage> {
                       child: CircleAvatar(
                         child: ClipOval(
                           child: Image(
-                            image: AssetImage('lib/images/rajms.jpg'),
+                            image: AssetImage('lib/images/dp.png'),
                             height: 50.0,
                             width: 50.0,
                             fit: BoxFit.cover,
@@ -256,7 +265,10 @@ class _TimeLinePageState extends State<TimeLinePage> {
                     trailing: IconButton(
                       icon: Icon(Icons.more_horiz),
                       color: Colors.black,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => dio1()));
+                      },
                     ),
                   ),
                   Container(
@@ -273,7 +285,7 @@ class _TimeLinePageState extends State<TimeLinePage> {
                         ),
                       ],
                       image: DecorationImage(
-                        image: AssetImage('lib/images/naruto.jpg'),
+                        image: AssetImage('lib/images/nato.jpg'),
                         fit: BoxFit.fitWidth,
                       ),
                     ),
@@ -291,14 +303,14 @@ class _TimeLinePageState extends State<TimeLinePage> {
                                   Icons.favorite,
                                   size: 28,
                                 ),
-                                color: iconColor,
+                                color: Colorsr,
                                 onPressed: () {
                                   setState(() {
-                                    if (iconColor == Colors.blue) {
-                                      iconColor = Colors.red;
+                                    if (Colorsr == Colors.blue) {
+                                      Colorsr = Colors.red;
                                       count1++;
-                                    } else if (iconColor == Colors.red) {
-                                      iconColor = Colors.blue;
+                                    } else if (Colorsr == Colors.red) {
+                                      Colorsr = Colors.blue;
                                       count1--;
                                     }
                                   });
@@ -418,7 +430,10 @@ class _TimeLinePageState extends State<TimeLinePage> {
                     trailing: IconButton(
                       icon: Icon(Icons.more_horiz),
                       color: Colors.black,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ProfilePage()));
+                      },
                     ),
                   ),
                   Container(
@@ -453,14 +468,14 @@ class _TimeLinePageState extends State<TimeLinePage> {
                                   Icons.favorite,
                                   size: 28,
                                 ),
-                                color: iconColor,
+                                color: Colosr,
                                 onPressed: () {
                                   setState(() {
-                                    if (iconColor == Colors.blue) {
-                                      iconColor = Colors.red;
+                                    if (Colosr == Colors.blue) {
+                                      Colosr = Colors.red;
                                       count2++;
-                                    } else if (iconColor == Colors.red) {
-                                      iconColor = Colors.blue;
+                                    } else if (Colosr == Colors.red) {
+                                      Colosr = Colors.blue;
                                       count2--;
                                     }
                                   });

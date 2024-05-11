@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:social_media/pages/dio.dart';
+import '../screens/signin_screen.dart';
 import '../widgets/header.dart';
 import 'package:open_file/open_file.dart';
 import 'package:social_media/pages/files_pages.dart';
@@ -76,7 +79,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50)),
                   child: Text(
-                    "On Going",
+                    "Finised Project",
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ),
@@ -96,13 +99,16 @@ class _NotificationsPageState extends State<NotificationsPage> {
                 child: MaterialButton(
                   minWidth: 300,
                   height: 50,
-                  onPressed: () {},
-                  color: Colors.blueAccent,
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => articale()));
+                  },
+                  color: Colors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50)),
                   child: Text(
-                    "Finised Project",
-                    style: TextStyle(fontSize: 18, color: Colors.white),
+                    "New Project Startup ?",
+                    style: TextStyle(fontSize: 18, color: Colors.black),
                   ),
                 ),
               ),
@@ -122,19 +128,16 @@ class _NotificationsPageState extends State<NotificationsPage> {
                   minWidth: 300,
                   height: 50,
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => articale()));
+                    pickFiless();
                   },
-                  color: Colors.white,
+                  color: Colors.blueAccent,
                   shape: RoundedRectangleBorder(
                     //  side: BorderSide(color: Colors.black),
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Text(
-                    "New Project Startup ?",
-                    style: TextStyle(
-                      fontSize: 18,
-                    ),
+                    "Pick Project Files",
+                    style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ),
               ),
@@ -154,13 +157,19 @@ class _NotificationsPageState extends State<NotificationsPage> {
                   minWidth: 300,
                   height: 50,
                   onPressed: () {
-                    pickFiless();
+                    FirebaseAuth.instance.signOut().then((value) {
+                      print("Signed Out");
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SigInScreen()));
+                    });
                   },
                   color: Colors.green,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50)),
                   child: Text(
-                    "Pick Project Files",
+                    "Log Out",
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ),

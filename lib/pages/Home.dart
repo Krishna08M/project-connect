@@ -35,6 +35,10 @@ class _HomeState extends State<Home> {
       body: PageView(
         children: <Widget>[
           TimeLinePage(),
+          SearchPage(),
+          UploadPage(),
+          NotificationsPage(),
+          ProfilePage(),
           // ElevatedButton(
           //   child: Text("Logout"),
           //   onPressed: () {
@@ -45,10 +49,6 @@ class _HomeState extends State<Home> {
           //     });
           //   },
           // ),
-          SearchPage(),
-          UploadPage(),
-          NotificationsPage(),
-          ProfilePage(),
         ],
         controller: pageController,
         onPageChanged: whenPageChanges,
